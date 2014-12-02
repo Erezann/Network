@@ -1,0 +1,9 @@
+*.zip
+*.class
+*.txt
+*.iml
+*~
+*.xml
+*.name
+out/
+idea/

@@ -1,0 +1,71 @@
+/**
+    Host Client for a socket communication
+ * 
+ */
+package socket;
+
+import java.io.*;
+import java.net.*;
+
+import requete.CommandNotFoundException;
+import requete.Requete;
+
+/**
+ * @author ZHU Yuting
+ * @version 06/11/2014
+ * 
+ */
+public class Client {
+
+    private Socket socket;
+    private BufferedReader in;
+    private PrintWriter out;
+    private static final String IP_ADDRESS = "10.212.126.122";
+    private static final int PORT = 9874;
+
+    private final static String END_CONNEXION="stop";
+    private final static String CLIENT_NAME="Client :";
+    private final static String SERVER_NAME="Server :";
+    private final static String ERROR="Error";
+
+    public Client() {
+        try {
+            socket = new Socket(IP_ADDRESS, PORT);
+            in = new BufferedReader(new InputStreamReader(
+                    socket.getInputStream()));
+            out = new PrintWriter(socket.getOutputStream(), true);
+            BufferedReader line = new BufferedReader(new InputStreamReader(
+                    System.in));
+            String serveurAnswer;
+            String strline; // input by user
+            strline = line.readLine();
+            while (!strline.equalsIgnoreCase(END_CONNEXION)) {
+                out.println(strline);
+                out.flush();
+                try {
+                    strline=new Requete(strline).toString();
+                }
+                catch (CommandNotFoundException e){
+                    System.out.println( "Command not found !");
+                }
+                strline=adaptRequest(strline);
+                System.out.println(CLIENT_NAME + strline);
+                serveurAnswer=in.readLine();
+                System.out.println(SERVER_NAME + serveurAnswer);
+                strline = line.readLine();
+            }
+
+            out.close();
+            in.close();
+            socket.close();
+        } catch (IOException e) {
+            System.err.println(ERROR + e);
+        }
+    }
+
+    private String adaptRequest(String s){
+        s=s.replace("%%"," ");
+        return s;
+    }
+
+}
