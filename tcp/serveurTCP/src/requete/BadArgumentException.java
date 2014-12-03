@@ -5,7 +5,7 @@ package requete;
  */
 public class BadArgumentException extends Exception {
 
-    private final String ERROR="Error : Wrong number of argument";
+    private final String ERROR="Error : Wrong number of argument.";
 
     @Override
     public String getMessage() {

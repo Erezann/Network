@@ -37,7 +37,7 @@ public class Data {
             for (Object surname :data.get(name).toArray()){
                 s+="'"+surname.toString()+"' ";
             }
-            s+="] \n";
+            s+="] ";
         }
 
         return s;

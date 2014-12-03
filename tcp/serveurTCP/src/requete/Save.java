@@ -46,6 +46,9 @@ public class Save extends Commands{
 
         Data.add(name,surname);
 
+        name=null;
+        surname=null;
+
         return MESSAGE;
     }
 }

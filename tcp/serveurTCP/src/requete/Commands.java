@@ -23,9 +23,15 @@ public abstract class  Commands {
 
     static String getCommands(String commandeName,ReadEntry entry){
         try {
+            if(! COMMANDS.containsKey(commandeName)){
+                throw new BadCommandException();
+            }
             return COMMANDS.get(commandeName.toLowerCase()).virtualConstructor(entry);
         }
         catch (BadArgumentException e){
+            return e.getMessage();
+        }
+        catch (BadCommandException e){
             return e.getMessage();
         }
 

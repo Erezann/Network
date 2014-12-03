@@ -50,6 +50,9 @@ public class Delete extends Commands{
             Data.delete(name,surname);
         }
 
+        name=null;
+        surname=null;
+
         return MESSAGE;
     }
 

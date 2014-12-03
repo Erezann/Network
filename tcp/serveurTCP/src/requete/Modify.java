@@ -51,6 +51,10 @@ public class Modify extends Commands{
             Data.modify(name,surname,newSurname);
         }
 
+        name=null;
+        surname=null;
+        newSurname=null;
+
         return MESSAGE;
     }
 
