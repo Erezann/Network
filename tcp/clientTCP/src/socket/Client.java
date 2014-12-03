@@ -46,6 +46,8 @@ public class Client {
                 System.out.println(SERVER_NAME + serveurAnswer);
                 strline = line.readLine();
             }
+            out.println(strline);
+            out.flush();
 
             out.close();
             in.close();
