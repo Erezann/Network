@@ -7,8 +7,6 @@ package socket;
 import java.io.*;
 import java.net.*;
 
-import requete.CommandNotFoundException;
-import requete.Requete;
 
 /**
  * @author ZHU Yuting
@@ -43,13 +41,6 @@ public class Client {
             while (!strline.equalsIgnoreCase(END_CONNEXION) && serveurAnswer!=null) {
                 out.println(strline);
                 out.flush();
-                /*try {
-                    strline=new Requete(strline).toString();
-                }
-                catch (CommandNotFoundException e){
-                    System.out.println( "Command not found !");
-                }*/
-                //strline=adaptRequest(strline);
                 System.out.println(CLIENT_NAME + strline);
                 serveurAnswer=in.readLine();
                 System.out.println(SERVER_NAME + serveurAnswer);
@@ -64,11 +55,6 @@ public class Client {
         }
 
         System.out.println(END);
-    }
-
-    private String adaptRequest(String s){
-        s=s.replace("%%"," ");
-        return s;
     }
 
 }
