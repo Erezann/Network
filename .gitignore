@@ -7,3 +7,4 @@
 *.name
 out/
 idea/
+.DS_Store
