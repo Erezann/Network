@@ -1,7 +1,6 @@
 /**
  * 
  */
-package Serveur;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -16,7 +15,7 @@ import java.net.SocketException;
 public class Serveur {
     private static final int PORT = 9876;
     private static final int MAX = 1024;
-    private static final String IP_ADDRESS = "192.168.31.155";
+    private static final String IP_ADDRESS = "192.168.1.12";
     private static final String BEGIN = "Begin...";
     private static final String RECEIVE = "Recieve: ";
     private DatagramSocket serverSocket = null;

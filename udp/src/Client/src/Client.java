@@ -1,7 +1,6 @@
 /**
  * 
  */
-package Client;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -12,13 +11,14 @@ import java.net.SocketException;
 /**
  * @author apple
  * 
- */
+ **/
+//test
 public class Client {
     private DatagramSocket clientSocket = null;
     private byte[] buffer = new byte[1024];;
     private static final int TIMEOUT = 60;
     private static final int PORT = 9876;
-    private static final String IP_ADDRESS="192.168.31.155";
+    private static final String IP_ADDRESS="192.168.1.12";
 
     public Client() throws SocketException {
         clientSocket = new DatagramSocket();

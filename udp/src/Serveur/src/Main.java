@@ -1,7 +1,6 @@
 /**
  * 
  */
-package Serveur;
 
 import java.io.IOException;
 
